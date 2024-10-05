@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block head %}
+{% endblock %}
+
+{% block main %}
+<form method="post" action="/quote">
+    <input type="text" class="form-control mx-auto w-auto" name="ticker" autofocus autocomplete="off" placeholder="Enter Ticker">
+    <button class="btn btn-primary needs-space" type="submit">Search</button>
+</form>
+{% endblock %}

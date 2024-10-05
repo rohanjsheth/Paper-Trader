@@ -1,0 +1,23 @@
+{% extends "history.html" %}
+
+{% block tr %}
+        <th scope="col">Company</th>
+        <th scope="col">Number of Shares</th>
+        <th scope="col">Avg Share Price</th>
+        <th scope="col">Assets Held</th>
+{% endblock %}
+{% block table2 %}
+        <tr>
+                <th scope = "col" colspan="3" class="text-end">Liquid Assets:</th>
+                <td colspan="4">{{ account_balance | usd}}</td>
+        </tr>
+        <tr>
+                <th scope = "col" colspan="3" class="text-end">Total Invested:</th>
+                <td colspan="4">{{ invested_assets | usd}}</td>
+        </tr>
+        <tr>
+                <th scope = "col" colspan="3" class="text-end">Total:</th>
+                <td colspan="4">{{ total_held | usd}}</td>
+        </tr>
+{% endblock %}
+

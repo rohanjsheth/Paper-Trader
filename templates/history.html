@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block main %}
+{% block table %}
+    <table class="table table-borderless">
+        {% block tr %}
+            <tr>
+                <th scope="col">Company</th>
+                <th scope="col">Number of Shares</th>
+                <th scope="col">Share Price</th>
+                <th scope="col">Net Transaction Value</th>
+            </tr>
+        {% endblock %}
+        {% for dict_item in purchase_history %}
+        <tr>
+            {% for value in dict_item %}
+                {% if value == 'share_price' or value == 'AVG(IIF(share_price >= 0, share_price, NULL))' or value == 'net_effect'%}
+                    <td>{{ dict_item[value] | usd}}</td>
+                {% elif value == 'net_effect' %}
+                    <td>{{ dict_item[value] | usd}}</td>
+                {% else %}
+                    <td>{{ dict_item[value] }}</td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        {% endblock %}
+        {% block table2 %}{% endblock %}
+    </table>
+
+{% endblock %}
